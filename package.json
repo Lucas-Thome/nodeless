@@ -1,0 +1,25 @@
+{
+  "name": "nodeless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "optimize.js",
+  "scripts": {
+    "predeploy": "rm -rf node_modules/sharp && npm install --plataform=linux --arch=x64 --target=8.10.0 sharp",
+    "deploy": "serverless deploy -v",
+    "postdeploy": "rm -rf node_modules/sharp && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucas-Thome/nodeless.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lucas-Thome/nodeless/issues"
+  },
+  "homepage": "https://github.com/Lucas-Thome/nodeless#readme",
+  "dependencies": {
+    "sharp": "^0.23.0"
+  }
+}

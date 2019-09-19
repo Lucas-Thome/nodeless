@@ -3,30 +3,34 @@ service: nodeless
 provider:
   name: aws
   runtime: nodejs10.x
+  profile: poc
   region: us-east-1
   memorySize: 256
   iamRoleStatements:
     - Effect: Alllow
-      - Action: 
+      Action: 
         - s3:GetObject
         - s3:PutObject
-      - Resource:
+      Resource:
         - "arn:aws:s3:::*"
 functions:
   optimize:
     handler: optimize.handle
     enviroment:
-      bucket: serverless-lucas
+      bucket: serverless-lucas-teste
     events:
-      -s3:
-          bucket: serverless-lucas
+      - s3:
+          bucket: serverless-lucas-teste
           event: s3:ObjectCreated:*
           rules:
             - prefix: uploads/
             - suffix: .jpg
-      -s3:
-          bucket: serverless-lucas
+      - s3:
+          bucket: serverless-lucas-teste
           event: s3:ObjectCreated:*
           rules:
             - prefix: uploads/
             - suffix: .png
+
+
+
